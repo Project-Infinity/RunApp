@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <!--Quick Menu-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/quick_nav"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <!--Nav Home-->
+        <RelativeLayout
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="goHome"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/home_icon"
+                android:src="@drawable/home"
+                android:contentDescription="@string/title_home"
+                android:layout_marginBottom="5dp"
+                />
+
+            <View android:background="@color/piGreen"
+                  android:layout_width = "match_parent"
+                  android:layout_height="2dp"
+                  android:layout_below="@id/home_icon"
+                />
+
+        </RelativeLayout>
+
+        <!--Workouts-->
+        <RelativeLayout
+            android:id="@+id/workouts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="goWorkouts">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/workouts_icon"
+                android:src="@drawable/workouts"
+                android:contentDescription="@string/title_workouts"
+                android:layout_marginBottom="5dp"
+                />
+        </RelativeLayout>
+
+        <!--Groups-->
+        <RelativeLayout
+            android:id="@+id/groups"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="goGroups">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/groups_icon"
+                android:src="@drawable/groups"
+                android:contentDescription="@string/title_groups"
+                android:layout_marginBottom="5dp"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/quick_nav">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Horizontal line-->
+            <View
+                android:background="@color/black"
+                android:layout_width = "match_parent"
+                android:layout_height="1dp"
+                />
+
+            <!--Today-->
+            <RelativeLayout
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:onClick="goWorkouts">
+
+                <TextView
+                    android:id="@+id/next_lbl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Next Run"
+                    android:textSize="25sp"
+                    android:layout_marginBottom="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/next_workout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/next_lbl"
+                    android:layout_marginLeft="50dp"
+                    android:text="10k Run"
+                    android:textSize="20sp"
+                    />
+
+                <TextView
+                    android:id="@+id/next_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/next_workout"
+                    android:layout_marginLeft="50dp"
+                    android:textSize="20sp"
+                    android:text="Today"
+                    />
+            </RelativeLayout>
+
+            <!--Horizontal line-->
+            <View
+                android:background="@color/black"
+                android:layout_width = "match_parent"
+                android:layout_height="1dp"
+                />
+
+            <!--Upcoming Goals-->
+            <RelativeLayout
+                android:id="@+id/goals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                >
+
+                <!--Upcoming Text-->
+                <TextView
+                    android:id="@+id/upcoming_lbl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Upcoming Goals"
+                    android:textSize="25sp"
+                    android:layout_marginBottom="10dp"
+                    />
+
+                <!--Upcoming Display-->
+                <TextView
+                    android:id="@+id/goal"
+                    android:layout_below="@id/upcoming_lbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="50dp"
+                    android:text="500k Goal"
+                    />
+
+                <TextView
+                    android:id="@+id/goal_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/goal"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="50dp"
+                    android:text="455k"
+                    />
+            </RelativeLayout>
+
+            <!--Horizontal line-->
+            <View
+                android:background="@color/black"
+                android:layout_width = "match_parent"
+                android:layout_height="1dp"
+                />
+
+            <!--Upcoming Goals-->
+            <RelativeLayout
+                android:id="@+id/last"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                >
+
+                <!--Upcoming Text-->
+                <TextView
+                    android:id="@+id/last_lbl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Last Run"
+                    android:textSize="25sp"
+                    android:layout_marginBottom="10dp"
+                    />
+
+                <!--Upcoming Display-->
+                <TextView
+                    android:id="@+id/last_workout"
+                    android:layout_below="@id/last_lbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="50dp"
+                    android:text="5k Run"
+                    />
+
+                <TextView
+                    android:id="@+id/last_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/last_workout"
+                    android:layout_marginLeft="50dp"
+                    android:textSize="20sp"
+                    android:text="February 2, 2015"
+                    />
+            </RelativeLayout>
+
+            <!--Horizontal line-->
+            <View
+                android:background="@color/black"
+                android:layout_width = "match_parent"
+                android:layout_height="1dp"
+                />
+        </LinearLayout>
+    </ScrollView>
+    <!--Quick Start-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/quick_start"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:textColor="@color/piGreen"
+        android:background="@color/dGreen"
+        />
+
+</RelativeLayout>
