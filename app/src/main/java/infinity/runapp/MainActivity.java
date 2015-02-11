@@ -50,13 +50,25 @@ public class MainActivity extends ActionBarActivity
         switch (position)
         {
             case 0:
-                objFragment = new home_Fragment();
+                objFragment = new profile_Fragment();
                 break;
             case 1:
-                objFragment = new workouts_Fragment();
+                objFragment = new home_Fragment();
                 break;
             case 2:
+                objFragment = new workouts_Fragment();
+                break;
+            case 3:
                 objFragment = new groups_Fragment();
+                break;
+            case 4:
+                objFragment = new goals_Fragment();
+                break;
+            case 5:
+                objFragment = new notifications_Fragment();
+                break;
+            case 6:
+                objFragment = new settings_Fragment();
                 break;
         }
 
@@ -94,13 +106,25 @@ public class MainActivity extends ActionBarActivity
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.title_home);
+                mTitle = getString(R.string.title_profile);
                 break;
             case 2:
-                mTitle = getString(R.string.title_workouts);
+                mTitle = getString(R.string.title_home);
                 break;
             case 3:
+                mTitle = getString(R.string.title_workouts);
+                break;
+            case 4:
                 mTitle = getString(R.string.title_groups);
+                break;
+            case 5:
+                mTitle = getString(R.string.title_goals);
+                break;
+            case 6:
+                mTitle = getString(R.string.title_notifications);
+                break;
+            case 7:
+                mTitle = getString(R.string.title_settings);
                 break;
         }
     }

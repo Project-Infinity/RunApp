@@ -79,4 +79,15 @@
           android:layout_below="@id/quick_nav"
     />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Template"
+        android:id="@+id/heading"
+        android:textColor="@color/piGreen"
+        android:layout_below="@+id/quick_nav"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>

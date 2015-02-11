@@ -46,7 +46,7 @@
                 android:layout_height="40dp"
                 android:id="@+id/workouts_icon"
                 android:src="@drawable/workouts"
-                android:contentDescription="@string/title_workouts"
+                android:contentDescription="@string/title_groups"
                 android:layout_marginBottom="5dp"
                 />
 
@@ -69,22 +69,22 @@
                 android:layout_marginBottom="5dp"
                 />
 
-            <View android:background="@color/piGreen"
-                  android:layout_width = "match_parent"
-                  android:layout_height="2dp"
-                  android:layout_below="@id/groups_icon"
-                />
-
         </RelativeLayout>
 
     </LinearLayout>
+
+    <View android:background="@color/piGreen"
+          android:layout_width = "match_parent"
+          android:layout_height="2dp"
+          android:layout_below="@id/quick_nav"
+    />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/title_groups"
+        android:text="@string/title_settings"
         android:id="@+id/heading"
         android:textColor="@color/piGreen"
         android:layout_below="@+id/quick_nav"
