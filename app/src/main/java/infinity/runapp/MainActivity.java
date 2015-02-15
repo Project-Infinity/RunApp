@@ -50,10 +50,10 @@ public class MainActivity extends ActionBarActivity
         switch (position)
         {
             case 0:
-                objFragment = new profile_Fragment();
+                objFragment = new home_Fragment();
                 break;
             case 1:
-                objFragment = new home_Fragment();
+                objFragment = new profile_Fragment();
                 break;
             case 2:
                 objFragment = new workouts_Fragment();
@@ -106,10 +106,10 @@ public class MainActivity extends ActionBarActivity
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.title_profile);
+                mTitle = getString(R.string.title_home);
                 break;
             case 2:
-                mTitle = getString(R.string.title_home);
+                mTitle = getString(R.string.title_profile);
                 break;
             case 3:
                 mTitle = getString(R.string.title_workouts);
