@@ -103,6 +103,31 @@ public class MainActivity extends ActionBarActivity
                 .commit();
     }
 
+    public void goHistory(View view) {
+        Fragment history = new history_Fragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, history)
+                .commit();
+    }
+
+    public void goGoals(View view) {
+        Fragment goals = new goals_Fragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, goals)
+                .commit();
+    }
+
+    public void goRun(View view) {
+        Fragment run = new run_Fragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, run)
+                .commit();
+    }
+
+
     public void onSectionAttached(int number) {
         switch (number) {
             case 0:

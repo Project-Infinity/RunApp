@@ -146,6 +146,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:onClick="goGoals"
                 >
 
                 <!--Upcoming Text-->
@@ -193,6 +194,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:onClick="goHistory"
                 >
 
                 <!--Upcoming Text-->
@@ -248,6 +250,7 @@
             android:gravity="center"
             android:textColor="@color/piGreen"
             android:background="@color/dGreen"
+            android:onClick="goRun"
             />
     </RelativeLayout>
 </LinearLayout>

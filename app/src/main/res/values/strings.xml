@@ -23,6 +23,9 @@
 
     <string name="login">Login</string>
     <string name="reg">Register</string>
+    <string name="title_activity_database">database</string>
+
+    <string name="hello_world">Hello world!</string>
 
 
 </resources>
