@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="infinity.runapp.LogReg"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@string/login"
+            android:id="@+id/login"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:singleLine="false"
+            android:textColor="@color/dGreen"
+            android:onClick="goLogin" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@string/reg"
+            android:id="@+id/register"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/dGreen"
+            android:onClick="goReg" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/imageView3"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/final_logo" />
+
+</LinearLayout>
