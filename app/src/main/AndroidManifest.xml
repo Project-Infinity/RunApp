@@ -35,10 +35,7 @@
             android:label="@string/reg"
             android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name=".Database"
-            android:label="@string/title_activity_database" >
-        </activity>
+
     </application>
 
 </manifest>
