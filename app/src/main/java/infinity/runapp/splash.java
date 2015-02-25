@@ -1,13 +1,13 @@
 package infinity.runapp;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class splash extends Activity {
+public class splash extends ActionBarActivity {
 
     private Thread mSplash;
     private final int TIME = 3000;
@@ -31,7 +31,7 @@ public class splash extends Activity {
                     }
                     finally
                     {
-                        Intent intent = new Intent(getBaseContext(), LogReg.class);
+                        Intent intent = new Intent(getBaseContext(), MainActivity.class);
                         startActivity(intent);
                         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                         finish();
