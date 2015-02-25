@@ -3,53 +3,47 @@ package infinity.runapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-
+import android.widget.Button;
 
 public class LogReg extends Activity {
-
+    UserFunctions userFunctions;
+    Button btnLogout;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_reg);
-    }
 
+        /**
+         * Dashboard Screen for the application
+         * */
+        // Check login status in database
+        userFunctions = new UserFunctions();
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_log_reg, menu);
-        return true;
-    }
+        if(userFunctions.isUserLoggedIn(getApplicationContext())){
+            // user already logged in show databoard
+            setContentView(R.layout.activity_log_reg);
+            btnLogout = (Button) findViewById(R.id.btnLogout);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+            btnLogout.setOnClickListener(new View.OnClickListener() {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                public void onClick(View arg0) {
+                    // TODO Auto-generated method stub
+                    userFunctions.logoutUser(getApplicationContext());
+                    Intent login = new Intent(getApplicationContext(), Login.class);
+                    login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(login);
+                    // Closing dashboard screen
+                    finish();
+                }
+            });
+
+        }else{
+            // user is not logged in show login screen
+            Intent login = new Intent(getApplicationContext(), Login.class);
+            login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(login);
+            // Closing dashboard screen
+            finish();
         }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void goLogin(View view)
-    {
-        Intent i = new Intent(this, Login.class);
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        startActivity(i);
-    }
-
-    public void goReg(View view)
-    {
-        Intent i = new Intent(this, Register.class);
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        startActivity(i);
     }
 }

@@ -8,7 +8,9 @@
     android:orientation="vertical"
     android:gravity="center_vertical">
 
-    <TextView android:text="@string/reg" android:layout_width="match_parent"
+    <TextView
+        android:text="@string/reg"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="50sp"
         android:textColor="@color/dGreen"
@@ -20,7 +22,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/regEmail"
         android:hint="E-mail"
         android:layout_marginBottom="20dp" />
 
@@ -29,25 +31,25 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/regPassword"
         android:hint="Password"
         android:layout_marginBottom="20dp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/editText3"
-        android:hint="Re-enter Password"
-        android:layout_marginBottom="20dp" />
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:inputType="textPassword"-->
+        <!--android:ems="10"-->
+        <!--android:id="@+id/regPassword2"-->
+        <!--android:hint="Re-enter Password"-->
+        <!--android:layout_marginBottom="20dp" />-->
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText4"
+        android:id="@+id/regFName"
         android:hint="First Name"
         android:layout_marginBottom="20dp" />
 
@@ -56,15 +58,23 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText5"
+        android:id="@+id/regLName"
         android:hint="Last Name"
         android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:id="@+id/register_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#e30000"
+        android:textStyle="italic"
+        />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Register"
-        android:id="@+id/button"
+        android:id="@+id/btnRegister"
         android:layout_marginBottom="20dp"
         android:background="@color/piGreen"
         android:focusableInTouchMode="true">
@@ -75,10 +85,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Already Registered?"
-        android:id="@+id/textView"
+        android:id="@+id/linkToLoginScreen"
         android:textSize="20sp"
         android:gravity="center"
         android:textColor="@color/dGreen"
-        android:onClick="goLogin" />
+        />
 
 </LinearLayout>

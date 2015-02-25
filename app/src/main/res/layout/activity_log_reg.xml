@@ -14,29 +14,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center">
 
-        <TextView
+        <Button
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text="@string/login"
-            android:id="@+id/login"
+            android:text="@string/title_logout"
+            android:id="@+id/btnLogout"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="25sp"
             android:singleLine="false"
             android:textColor="@color/dGreen"
-            android:onClick="goLogin" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="@string/reg"
-            android:id="@+id/register"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="25sp"
-            android:textColor="@color/dGreen"
-            android:onClick="goReg" />
-
+            />
     </LinearLayout>
 
     <ImageView
