@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/loginEmail"
+        android:id="@+id/email"
         android:hint="E-mail"
         android:layout_marginBottom="20dp" />
 
@@ -31,12 +31,12 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/loginPassword"
+        android:id="@+id/password"
         android:hint="Password"
         android:layout_marginBottom="20dp" />
 
     <TextView
-        android:id="@+id/login_error"
+        android:id="@+id/error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#e30000"
@@ -54,14 +54,14 @@
     <requestFocus />
     </Button>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/reg"
-        android:id="@+id/btnLinkToRegisterScreen"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:textColor="@color/dGreen"
-        />
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/reg"-->
+        <!--android:id="@+id/btnLinkToRegisterScreen"-->
+        <!--android:textSize="20sp"-->
+        <!--android:gravity="center"-->
+        <!--android:textColor="@color/dGreen"-->
+        <!--/>-->
 
 </LinearLayout>
