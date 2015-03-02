@@ -35,14 +35,14 @@
         android:hint="Password"
         android:layout_marginBottom="20dp" />
 
-    <!--<EditText-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:inputType="textPassword"-->
-        <!--android:ems="10"-->
-        <!--android:id="@+id/regPassword2"-->
-        <!--android:hint="Re-enter Password"-->
-        <!--android:layout_marginBottom="20dp" />-->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/regPassword2"
+        android:hint="Re-enter Password"
+        android:layout_marginBottom="20dp" />
 
     <EditText
         android:layout_width="match_parent"
