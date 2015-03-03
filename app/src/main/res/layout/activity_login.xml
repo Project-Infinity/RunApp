@@ -54,14 +54,15 @@
     <requestFocus />
     </Button>
 
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/reg"-->
-        <!--android:id="@+id/btnLinkToRegisterScreen"-->
-        <!--android:textSize="20sp"-->
-        <!--android:gravity="center"-->
-        <!--android:textColor="@color/dGreen"-->
-        <!--/>-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/reg"
+        android:id="@+id/linkToRegisterScreen"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/dGreen"
+        android:onClick="goReg"
+        />
 
 </LinearLayout>

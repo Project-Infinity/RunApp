@@ -18,9 +18,8 @@ import org.json.JSONObject;
 
 
 public class LoginActivity extends Activity {
-    EditText email;
-    EditText password;
-    TextView error;
+    EditText email, password;
+    TextView error, register;
     Button loginBtn;
 
 
@@ -43,6 +42,8 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
 
         loginBtn = (Button)findViewById(R.id.btnLogin);
+        register = (TextView)findViewById(R.id.linkToRegisterScreen);
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
@@ -112,6 +113,11 @@ public class LoginActivity extends Activity {
         startActivity(intent);
     }
 
+    public void goReg(View view) {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -127,9 +133,9 @@ public class LoginActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
