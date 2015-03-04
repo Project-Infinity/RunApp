@@ -1,10 +1,10 @@
 package infinity.runapp;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends ActionBarActivity {
     EditText email, password;
     TextView error, register;
     Button loginBtn;
