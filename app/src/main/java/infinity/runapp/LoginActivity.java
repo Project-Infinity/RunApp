@@ -5,112 +5,115 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import org.json.JSONArray;
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class LoginActivity extends ActionBarActivity {
-    EditText email, password;
-    TextView error, register;
-    Button loginBtn;
 
+public class LoginActivity extends ActionBarActivity implements OnClickListener {
+
+    private EditText mEmail, mPassword;
+
+    private Button mLogin;
+
+    private ProgressDialog pDialog;
+
+    JSONParser jsonParser = new JSONParser();
 
     //URL to get JSON Array
-    private static String url = "http://cgi.soic.indiana.edu/~team36/dbtest/getUsers.php";
+    private static final String URL = "http://cgi.soic.indiana.edu/~team36/infinity/login.php";
     //JSON Node Names
-    private static final String TAG_USERS = "users";
-    private static final String TAG_ID = "userID";
-    private static final String TAG_FIRST_NAME = "fName";
-    private static final String TAG_LAST_NAME = "lName";
+    private static final String TAG_SUCCESS = "success";
+    private static final String TAG_MESSAGE = "message";
     private static final String TAG_EMAIL = "userEmail";
-    private static final String TAG_PASSWORD = "pswd";
-
-    JSONArray user = null;
-    int ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        loginBtn = (Button)findViewById(R.id.btnLogin);
-        register = (TextView)findViewById(R.id.linkToRegisterScreen);
+        mEmail = (EditText) findViewById(R.id.email);
+        mPassword = (EditText) findViewById(R.id.password);
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                email = (EditText)findViewById(R.id.email);
-                password = (EditText)findViewById(R.id.password);
-                error = (TextView)findViewById(R.id.error);
-
-                new JSONParse().execute();
-            }
-        });
+        mLogin = (Button) findViewById(R.id.btnLogin);
+        mLogin.setOnClickListener(this);
     }
 
-    private class JSONParse extends AsyncTask<String, String, JSONObject>{
-        private ProgressDialog pDialog;
+    public void onClick(View v) { new UserLogin().execute();}
+
+    class UserLogin extends AsyncTask <String, String, String>{
+
         @Override
         protected void onPreExecute(){
             super.onPreExecute();
 
-
             pDialog = new ProgressDialog(LoginActivity.this);
-            pDialog.setMessage("Logging In..");
+            pDialog.setMessage("Logging In...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();
         }
-        @Override
-        protected JSONObject doInBackground(String... args){
-            JSONParser jParser = new JSONParser();
 
-            JSONObject json = jParser.getJSONFromUrl(url);
-            return json;
-        }
         @Override
-        protected void onPostExecute(JSONObject json){
-            pDialog.dismiss();
+        protected String doInBackground(String... args){
+
+            int success;
+            String email = mEmail.getText().toString().toUpperCase();
+            String pass = mPassword.getText().toString();
+
             try{
-                // Getting JSON Array
-                user = json.getJSONArray(TAG_USERS);
-                for (int i = 0; i < user.length(); i++)
+                List<NameValuePair> params = new ArrayList<>();
+                params.add(new BasicNameValuePair("userEmail", email));
+                params.add(new BasicNameValuePair("pswd", pass));
+
+                Log.d("request!", "starting");
+
+                JSONObject json = jsonParser.makeHttpRequest(URL, "POST", params);
+
+                Log.d("Login attempt", json.toString());
+
+                success = json.getInt(TAG_SUCCESS);
+
+                if(success == 1)
                 {
-                    JSONObject c = user.getJSONObject(i);
-                    if(c.getString(TAG_EMAIL).equals(email.getText().toString().toUpperCase()))
-                    {
-                        ID = i;
-                    }
-                }
-                JSONObject c = user.getJSONObject(ID);
-                if(c.getString(TAG_PASSWORD).equals(password.getText().toString()))
-                {
-                    goApp(ID);
+                    Log.d("Successful Login!", json.toString());
+                    finish();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    return json.getString(TAG_MESSAGE);
                 }
                 else
                 {
-                    error.setText("Invalid login information");
+                    Log.d("Login Failure!", json.getString(TAG_MESSAGE));
+                    return json.getString(TAG_MESSAGE);
                 }
-            } catch (JSONException e) {
+            }catch(JSONException e){
                 e.printStackTrace();
+            }
+            return null;
+        }
+
+        protected void onPostExecute(String file_url){
+            pDialog.dismiss();
+
+            if(file_url != null){
+                Toast.makeText(LoginActivity.this, file_url, Toast.LENGTH_LONG).show();
             }
 
         }
-
-    }
-
-    public void goApp(int id){
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("SESSION_ID", id);
-        startActivity(intent);
     }
 
     public void goReg(View view) {

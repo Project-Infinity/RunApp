@@ -35,7 +35,7 @@ public class RegisterActivity extends ActionBarActivity implements OnClickListen
 
     JSONParser jsonParser = new JSONParser();
 
-    private static final String URL = "http://cgi.soic.indiana.edu/~team36/dbtest/register.php";
+    private static final String URL = "http://cgi.soic.indiana.edu/~team36/infinity/register.php";
 
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
@@ -55,13 +55,9 @@ public class RegisterActivity extends ActionBarActivity implements OnClickListen
         mRegister.setOnClickListener(this);
     }
 
-    public void onClick(View v){
-        new CreateUser().execute();
-    }
+    public void onClick(View v) { new CreateUser().execute(); }
 
     class CreateUser extends AsyncTask<String, String, String> {
-
-        boolean failure = false;
 
         @Override
         protected void onPreExecute(){
@@ -102,6 +98,8 @@ public class RegisterActivity extends ActionBarActivity implements OnClickListen
                     if (success == 1) {
                         Log.d("User Created!", json.toString());
                         finish();
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        startActivity(intent);
                         return json.getString(TAG_MESSAGE);
                     } else {
                         Log.d("Login Failure!", json.getString(TAG_MESSAGE));
@@ -115,11 +113,9 @@ public class RegisterActivity extends ActionBarActivity implements OnClickListen
 
         protected void onPostExecute(String file_url){
             pDialog.dismiss();
-
             if(file_url != null){
                 Toast.makeText(RegisterActivity.this, file_url, Toast.LENGTH_LONG).show();
             }
-
         }
     }
 
